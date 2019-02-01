@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EasyCut</string>
+    <string name="hintphoneNumber">phone number</string>
+    <string name="hint_varificationCode">varification code</string>
+    <string name="start_phone_auth">start</string>
+    <string name="varify_phone_auth">varify</string>
+    <string name="resend_auth_code">resend</string>
+    <string name="title_activity_barber_profile">BarberProfileActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

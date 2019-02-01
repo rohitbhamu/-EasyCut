@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "190479235640",
+    "firebase_url": "https://easycut-5850f.firebaseio.com",
+    "project_id": "easycut-5850f",
+    "storage_bucket": "easycut-5850f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190479235640:android:a98111f33ad2ab60",
+        "android_client_info": {
+          "package_name": "com.example.rohitkumarbhamu.easycut"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190479235640-foeqaq931lq9dqv5fi1j0nqf7oq6oafp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rohitkumarbhamu.easycut",
+            "certificate_hash": "240ec72aa35981d012618a380a17d4d9d98f0f27"
+          }
+        },
+        {
+          "client_id": "190479235640-ci58ttpipii676fq1il3eqg2kr130m5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEghtTGtxZmZLiiuiQ8eIvkS_CwJWevgI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190479235640-ci58ttpipii676fq1il3eqg2kr130m5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
