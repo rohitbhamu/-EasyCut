@@ -50,6 +50,9 @@ public class BarberSignIn extends AppCompatActivity {
         varifyButton=(Button)findViewById(R.id.button_verify_phone);
        // resendCodeButton=(Button)findViewById(R.id.button_resend);  //WE will do resend part later
 
+
+
+
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,23 +6,44 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".BarberProfileActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarprofileActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary" />
+
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:background="@android:color/holo_green_dark"
         app:cardBackgroundColor="@android:color/darker_gray"
         android:layout_height="wrap_content">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:id="@+id/parentrRelativeLayout"
             android:layout_height="wrap_content">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:civ_circle_background_color="@android:color/holo_red_dark"
-                android:src="@drawable/barber_pic"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearlayoutimageView"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/barberProfileImageView"
+                    app:civ_circle_background_color="@android:color/holo_red_dark"
+                    android:src="@drawable/barber_pic"/>
+
+
+            </LinearLayout>
+
+
+
             <LinearLayout
                 android:id="@+id/barbernameLinearlayout"
                 android:layout_width="wrap_content"
+                android:layout_toRightOf="@+id/linearlayoutimageView"
                 android:orientation="vertical"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -42,6 +63,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:id="@+id/mobilenumberLinearLayout"
@@ -81,6 +103,7 @@
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:id="@+id/addresslinearLayout"
@@ -124,10 +147,50 @@
 
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/linearlayoutEditProfile"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/barbernameLinearlayout"
+                android:layout_alignParentRight="true"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_edit_black_24dp"
 
-        </LinearLayout>
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/editVectorColor"
+
+                    android:text="Edit"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/progressbarUpdatedone"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
 
 
 </LinearLayout>
