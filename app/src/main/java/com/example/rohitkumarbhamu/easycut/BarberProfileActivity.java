@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -45,8 +47,8 @@ public class BarberProfileActivity extends AppCompatActivity {
     private  static final int CHOOSE_IMAGE= 101;
     TextView editedbarberName,editedbarberAddress,editedbarberOpeningTime;//for dialog builder layout
     TextView barberName,barberAddress,barberOpeningTime,barberNumber;//for barberprofile layout
-    ImageView editedbarberImage,barberImage;
-    LinearLayout editInfoLinearLayout;
+    ImageView editedbarberImage,barberImage;//image views first for dialog and second one for profile
+    LinearLayout editInfoLinearLayout;//for edit the information it has an textview and an image
     ProgressBar progressBar;//for showing after saving the picture from dialog builder
     String profileImageUrl;
     FirebaseAuth mAuth;
@@ -65,6 +67,11 @@ public class BarberProfileActivity extends AppCompatActivity {
         barberAddress=findViewById(R.id.address_textView);
         barberOpeningTime=findViewById(R.id.opening_time_textview);
         barberNumber=findViewById(R.id.mobilenumber_textview);
+
+        BottomNavigationView bottomNav=findViewById(R.id.bottom_navigation_bar);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FragmentAppointment()).commit();
 
         Toolbar toolbar = findViewById(R.id.toolbarprofileActivity);
         setSupportActionBar(toolbar);
@@ -216,6 +223,41 @@ public class BarberProfileActivity extends AppCompatActivity {
 
         if (uriProfileImage!=null){
             progressBar.setVisibility(View.VISIBLE);
+            //TODO check with this commented code that loading the profile image is working or not  ->Tried but not working
+
+         //   /*
+            profielImageRef.putFile(uriProfileImage)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressBar.setVisibility(View.GONE);
+
+                            profielImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    profileImageUrl=uri.toString();
+                                    Toast.makeText(getApplicationContext(),"Image uploaded succesfully",Toast.LENGTH_SHORT).show();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+            // */
+                /*
             profielImageRef.putFile(uriProfileImage)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -241,6 +283,8 @@ public class BarberProfileActivity extends AppCompatActivity {
                             Toast.makeText(BarberProfileActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     });
+
+                */
         }
     }
 
@@ -283,4 +327,23 @@ public class BarberProfileActivity extends AppCompatActivity {
             startActivity(new Intent(this,MainActivity.class));
             }
     }
+
+//for bottom navigaiton bar
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    Fragment selectedFragment = null;
+                    switch (menuItem.getItemId()){
+                        case R.id.nav_appointment:
+                            selectedFragment = new FragmentAppointment();
+                            break;
+                        case R.id.nav_services:
+                            selectedFragment= new FragmentService();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+                    return true;
+                }
+            };
 }

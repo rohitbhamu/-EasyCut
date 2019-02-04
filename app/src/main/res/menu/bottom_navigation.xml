@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--TODO add new items if you want to add anything in bottom navigation bar but mostly we use bottom navigation bar if we need less then three tab
+
+    -->
+<item
+    android:id="@+id/nav_appointment"
+    android:icon="@drawable/appointment_bottom_navigation"
+    android:title="Appointments"
+    />
+    <item
+        android:id="@+id/nav_services"
+        android:icon="@drawable/service_bottom_navigation"
+        android:title="Services"
+        />
+</menu>
