@@ -5,7 +5,7 @@
     -->
 <item
     android:id="@+id/nav_appointment"
-    android:icon="@drawable/appointment_bottom_navigation"
+    android:icon="@drawable/appointment_booked_bottom_navigation"
     android:title="Appointments"
     />
     <item
@@ -13,4 +13,10 @@
         android:icon="@drawable/service_bottom_navigation"
         android:title="Services"
         />
+    <item
+        android:id="@+id/nav_newRequest"
+        android:icon="@drawable/appointment_bottom_navigation"
+        android:title="New Requests"
+        />
+
 </menu>
