@@ -338,9 +338,10 @@ public class BarberProfileActivity extends AppCompatActivity {
                         case R.id.nav_appointment:
                             selectedFragment = new FragmentAppointment();
                             break;
-                        case R.id.nav_services:
-                            selectedFragment= new FragmentService();
+                        case R.id.nav_newRequest:
+                            selectedFragment= new FragmentNewRequest();
                             break;
+                            //TODO : add anything here as well if you want to add something in bottom navigation bar like Service
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
                     return true;
